@@ -1,0 +1,27 @@
+Append/XL = 6.2965 ms < Insert/XL = 1.445 s
+
+Append/L = 823.8 μs < Insert/L = 12.426 ms
+
+Append/M = 297.1 μs < Insert/M = 373.9 μs
+
+Append/S = 151.3 μs > Insert/S = 70.5 μs
+
+Append/T = 148.9 μs > Insert/T = 60.8 μs
+
+
+
+As far as the append or push method goes, the difference between the time of the smallest array
+and the largest array is minimal compared to that with the Insert or unshift method. 
+Append difference is 6.1476 ms
+Insert difference is 1.4449392 seconds
+You can see that when the arrays are smaller, the times are closer together, with Insert taking less time,
+but as the memory scales, Append is more consistent and better overall. In real work, arrays will likely be
+more than 10 items long.
+
+
+.push is more efficient over a larger scale because it does not need to reallocate memory
+and copy over new data. When it sees that the original array isn't big enough, it allocates 
+a new space for the new item. As for unshift, since it adds an item to the beginning of an array,
+it sees that there is already an item in the first position so it moves that to the second, the 
+second to the third and so on, all to make space for one item. With that method, the larger the array, 
+the more work has to be done.
